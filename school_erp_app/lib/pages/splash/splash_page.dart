@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({super.key});
 
   @override
   State<SplashPage> createState() => _SplashPageState();
@@ -20,11 +20,13 @@ class _SplashPageState extends State<SplashPage> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset("assets/Logo.png"),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.only(top: 100),
+          child: Column(
+            children: [
+              Image.asset("assets/Logo.png"),
+            ],
+          ),
         ),
       ),
     );
