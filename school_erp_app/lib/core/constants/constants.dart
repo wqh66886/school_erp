@@ -14,4 +14,19 @@ class Constants {
     {"Events": "assets/ic_event.png"},
     {"Logout": "assets/ic_logout.png"},
   ];
+
+  static Map<String, String> route = {
+    "Play Quiz": "/quiz",
+    "Assignment": "/assignment",
+    "School Holiday": "/holiday",
+    "Time Table": "/table",
+    "Result": "/result",
+    "Date Sheet": "/sheet",
+    "Ask Doubts": "/doubts",
+    "School Gallery": "/gallery",
+    "Leave Application": "/application",
+    "Change Password": "/change",
+    "Events": "/events",
+    "Logout": "/logout",
+  };
 }

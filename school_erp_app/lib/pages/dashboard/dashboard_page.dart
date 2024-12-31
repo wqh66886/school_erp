@@ -10,7 +10,7 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   Widget getItem(int index) {
-    index = index == 0 ? index : index + 1;
+    index = index == 0 ? index : index * 2;
     Map<String, String> left = Constants.menus[index];
     Map<String, String> right = Constants.menus[index + 1];
     return Padding(
@@ -19,7 +19,10 @@ class _DashboardPageState extends State<DashboardPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context)
+                  .pushNamed(Constants.route[left.keys.first]!);
+            },
             child: Container(
               width: 163,
               height: 132,
@@ -46,7 +49,10 @@ class _DashboardPageState extends State<DashboardPage> {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context)
+                  .pushNamed(Constants.route[right.keys.first]!);
+            },
             child: Container(
               width: 163,
               height: 132,
@@ -162,80 +168,90 @@ class _DashboardPageState extends State<DashboardPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: 175,
-                        padding: const EdgeInsets.all(8),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushNamed("/attendance");
+                        },
+                        child: Container(
+                          width: 175,
+                          padding: const EdgeInsets.all(8),
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                            color: Colors.white,
                           ),
-                          color: Colors.white,
-                        ),
-                        child: const Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: 55,
-                              height: 55,
-                              child: CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/ic_attendance.png"),
+                          child: const Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width: 55,
+                                height: 55,
+                                child: CircleAvatar(
+                                  backgroundImage:
+                                      AssetImage("assets/ic_attendance.png"),
+                                ),
                               ),
-                            ),
-                            Text(
-                              "82.9%",
-                              style: TextStyle(
-                                fontSize: 40,
-                                fontWeight: FontWeight.w400,
+                              Text(
+                                "82.9%",
+                                style: TextStyle(
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Attendance",
-                              style: TextStyle(
-                                color: Color.fromRGBO(119, 119, 119, 1),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            )
-                          ],
+                              Text(
+                                "Attendance",
+                                style: TextStyle(
+                                  color: Color.fromRGBO(119, 119, 119, 1),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        width: 175,
-                        padding: const EdgeInsets.all(8),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushNamed("/due");
+                        },
+                        child: Container(
+                          width: 175,
+                          padding: const EdgeInsets.all(8),
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                            color: Colors.white,
                           ),
-                          color: Colors.white,
-                        ),
-                        child: const Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: 55,
-                              height: 55,
-                              child: CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/ic_fees_due.png"),
+                          child: const Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width: 55,
+                                height: 55,
+                                child: CircleAvatar(
+                                  backgroundImage:
+                                      AssetImage("assets/ic_fees_due.png"),
+                                ),
                               ),
-                            ),
-                            Text(
-                              "\$400",
-                              style: TextStyle(
-                                fontSize: 40,
-                                fontWeight: FontWeight.w400,
+                              Text(
+                                "\$400",
+                                style: TextStyle(
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Fees Due",
-                              style: TextStyle(
-                                color: Color.fromRGBO(119, 119, 119, 1),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            )
-                          ],
+                              Text(
+                                "Fees Due",
+                                style: TextStyle(
+                                  color: Color.fromRGBO(119, 119, 119, 1),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ],
